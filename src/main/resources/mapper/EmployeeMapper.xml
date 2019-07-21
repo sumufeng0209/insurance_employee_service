@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.java.dao.EmployeeMapper">
+
+    <!--通过员工用户名查询员工账号信息和个人信息-->
+    <select id="findEmployeeByUsername" resultType="map">
+        SELECT
+            *
+        FROM
+            employee_account account,employee
+        WHERE
+            account.emp_id = employee.emp_id AND
+            emp_username = #{username}
+    </select>
+
+
+    <!--根据员工用户名修改最后一次登陆时间-->
+    <update id="updateEmployeeLastLoginTimeByUsername">
+        update
+            employee_account
+        set
+            emp_last_login_time = now()
+        where
+            emp_username = #{username}
+    </update>
+</mapper>
