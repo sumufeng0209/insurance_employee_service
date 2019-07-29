@@ -43,83 +43,60 @@
                         <div class="logo-element">车险管理系统
                         </div>
                     </li>
-						  
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'case_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">案件管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">报案</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'report_case')}"><a class="J_menuItem" th:href="@{/gateway/case/laod}">报案</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">已报案</a>
-                            </li>		  
-                            <li><a class="J_menuItem" href="form_validate.html">立案</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_filing')}"><a class="J_menuItem" th:href="@{/gateway/case/filing/init}">待立案</a>
                             </li>	   
-                            <li><a class="J_menuItem" href="form_validate.html">结案</a>
-                            </li>	 
-                            <li><a class="J_menuItem" href="form_validate.html">销案</a>
-                            </li>	
-                            <li><a class="J_menuItem" href="form_validate.html">重开案</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_closed_case')}"><a class="J_menuItem" th:href="@{/gateway/case/loadCloseCase}">待结案</a>
                             </li>
-                            
                         </ul>
                     </li>	 
 
 
 							
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'schedule_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">调度管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'scheduleList')}"><a class="J_menuItem" th:href="@{/gateway/schedule/in}">待调度</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
-                            </li>
-                            
                         </ul>
                     </li>	
 
 
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'fixed_loss_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">查勘定损管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_investigated_list')}"><a class="J_menuItem" th:href="@{/gateway/fixed-loss/init}">待查勘任务</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_fixed_loss_list')}"><a class="J_menuItem" th:href="@{/gateway/fixed-loss/survey}">待定损任务</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_fixed_loss_verfiy')}"><a class="J_menuItem" th:href="@{/gateway/fixed-loss/loadPage}">待核损任务</a>
                             </li>
                             
                         </ul>
                     </li>	
 
 
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'adjustment_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">理算管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">待审请理算</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_apply_adjustment')}"><a class="J_menuItem" th:href="@{/gateway/adjustment/apply/init}">待审请理算</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">待理算</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_adjustment')}"><a class="J_menuItem" th:href="@{/gateway/adjustment/cal/init}">待理算</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">待核赔</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_ajustment_verfiy')}"><a class="J_menuItem" th:href="@{/gateway/adjustment/com/init}">待核赔</a>
                             </li>
                             
                         </ul>
                     </li>	
 
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'document_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">单证管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'documentManagerList')}"><a class="J_menuItem" th:href="@{/gateway/document/loadDocumentTypeRelation}">单证管理</a>
                             </li>
                             
                         </ul>
@@ -127,50 +104,44 @@
 
 
 
-                    <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
-                            </li>
-                            
-                        </ul>
-                    </li>	
+                    <!--<li>-->
+                        <!--<a href="#"><i class="fa fa-edit"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>-->
+                        <!--<ul class="nav nav-second-level">-->
+                            <!--<li><a class="J_menuItem" href="form_basic.html">基本表单</a>-->
+                            <!--</li>-->
+                            <!--<li><a class="J_menuItem" href="form_validate.html">表单验证</a>-->
+                            <!--</li>-->
+                            <!--<li><a class="J_menuItem" href="form_advanced.html">高级插件</a>-->
+                            <!--</li>-->
+                            <!--<li><a class="J_menuItem" href="form_wizard.html">表单向导</a>-->
+                            <!--</li>-->
+                            <!---->
+                        <!--</ul>-->
+                    <!--</li>	-->
 
 
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'finance_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">财务管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'to_be_settlement')}"><a class="J_menuItem" th:href="@{/gateway/finance/loadSettlement}">待结算</a>
                             </li>
                             
                         </ul>
                     </li>	
 
 					
-                    <li>
+                    <li th:if="${#strings.contains(session.emp.permissions,'apply_manager')}">
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">审核管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <!--<li><a class="J_menuItem" th:href="@{/gateway/order/forwardManualQuotationList}">人工报价</a>-->
                             <!--</li>-->
-                            <li><a class="J_menuItem" href="http://localhost:9000/gateway/order/forwardManualQuotationList">人工报价1</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'manual_quotation_list')}"><a class="J_menuItem" th:href="@{/gateway/order/forwardManualQuotationList}">人工报价</a>
                             </li>
-                            <li><a class="J_menuItem" th:href="@{/gateway/order/forwardPolicyAuditList}">审核保单</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'policy_audit_list')}"><a class="J_menuItem" th:href="@{/gateway/order/forwardPolicyAuditList}">审核保单</a>
                             </li>
-                            <li><a class="J_menuItem" th:href="@{/gateway/order/forwardConfirmSignList}">确认签字</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'confirm_sign_list')}"><a class="J_menuItem" th:href="@{/gateway/order/forwardConfirmSignList}">确认签字</a>
                             </li>
-                            <li><a class="J_menuItem" th:href="@{/gateway/order/forwardRefundHandleList}">退款处理</a>
+                            <li th:if="${#strings.contains(session.emp.permissions,'refund_handle_list')}"><a class="J_menuItem" th:href="@{/gateway/order/forwardRefundHandleList}">退款处理</a>
                             </li>
                             
                         </ul>
@@ -193,6 +164,11 @@
                         <!--</form>-->
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <span th:each="r:${session.emp.roles}">
+                                [[${r.role_name}]]&nbsp;&nbsp;
+                            </span>
+                        </li>
 
                         <li class="dropdown" onclick="location.href='http://localhost:9000/gateway/employee/logout'">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown">

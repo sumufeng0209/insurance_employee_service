@@ -27,4 +27,20 @@ public interface EmployeeMapper {
      */
     public void updateEmployeeLastLoginTimeByUsername(@Param("username")String username);
 
+
+    /**
+     * 通过角色编号查询该角色的权限代码
+     * @param role_id
+     * @return
+     */
+    public List<String> findPermissionByRoleId(@Param("role_id") String role_id);
+
+
+    /**
+     * 通过员工编号查询该员工的所有角色
+     * @param emp_id
+     * @return
+     */
+    public List<Map<String,Object>> findRolesByEmpId(@Param("emp_id") String emp_id);
+
 }

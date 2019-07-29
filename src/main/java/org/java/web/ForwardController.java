@@ -27,7 +27,7 @@ public class ForwardController {
             return "login";
         }else{
             //已登陆就跳转到主页面
-            return "redirect:showIndex";
+            return "redirect:http://localhost:9000/gateway/employee/showIndex";
         }
     }
 

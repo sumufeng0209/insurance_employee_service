@@ -16,4 +16,12 @@ public interface EmployeeService {
      */
     public Map<String,Object> login(String username,String password);
 
+
+    /**
+     * 通过角色编号查询角色权限代码
+     * @param role_id
+     * @return
+     */
+    public List<String> findPermissionByRoleId(String role_id);
+
 }

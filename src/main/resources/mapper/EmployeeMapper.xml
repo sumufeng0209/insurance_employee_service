@@ -23,4 +23,28 @@
         where
             emp_username = #{username}
     </update>
+
+
+    <!--通过角色编号查询该角色的权限代码-->
+    <select id="findPermissionByRoleId" resultType="String">
+        SELECT
+            p.permission_code
+        FROM
+            role_permission_relationship rpr,permission p
+        WHERE
+            rpr.permission_id = p.permission_id and
+            rpr.role_id = #{role_id}
+    </select>
+
+
+    <!--通过员工编号查询该员工所有角色-->
+    <select id="findRolesByEmpId" resultType="map">
+        SELECT
+            r.*
+        FROM
+            role_employee_relationship rer,role r
+        WHERE
+            rer.role_id = r.role_id and
+            emp_id = #{emp_id}
+    </select>
 </mapper>
