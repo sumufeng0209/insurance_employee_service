@@ -14,7 +14,7 @@ spring:
       max-idle: 100
       max-active: 300
   redis:
-    host: 192.168.174.128
+    host: 192.168.217.128
     port: 6379
     jedis:
       pool:
